@@ -1,0 +1,92 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: This template creates a vpc with public and private subnets
+Resources:
+  MyVPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      Tags:
+        - Key: Version1Stack
+          Value: MyPublicSubnet
+  MyPublicSubnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: 10.0.1.0/24
+      AvailabilityZone: us east-1a
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Version1Stack
+          Value: My PublicSubnet
+  MyPrivateSubnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: 10.0.2.0/24
+      AvailabilityZone: us east-1a
+      MapPublicIpOnLaunch: false
+      Tags:
+        - Key: Version1Stack
+          Value: MyPrivateSubnet
+  MyInternetGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: Version1Stack
+          Value: MyInternetGateway
+  AttachGateway:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId: !Ref MyVPC
+      InternetGatewayId: !Ref MyInternetGateway
+  MyRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref MyVPC
+      Tags:
+        - Key: routetableStack
+          Value: MyRouteTable
+  MyRoute:
+    Type: AWS::EC2::Route
+    DependsOn: AttachGateway
+    Properties:
+      RouteTableId: !Ref MyRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref MyInternetGateway
+  MyPublicSubnetRouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref MyRouteTable
+      SubnetId: !Ref MyPublicSubnet
+  MySecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow SSH and HTTP access
+      VpcId: !Ref MyVPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+  MyEC2:Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t3.micro
+      ImageId: ami-0bdc7d025135d7b49
+      SubnetId: !Ref MyPublicSubnet
+      SecurityGroupIds:
+        - !Ref MySecurityGroup
+      KeyName: demo1-key
+      Tags:
+        - Key: EC2InstanceStack
+          value: MyEC2Instance
+      
+    
+
