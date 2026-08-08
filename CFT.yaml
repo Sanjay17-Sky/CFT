@@ -75,7 +75,7 @@ Resources:
           FromPort: 80
           ToPort: 80
           CidrIp: 0.0.0.0/0
-  MyEC2:Instance:
+  MyEC2Instance:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: t3.micro
@@ -86,7 +86,7 @@ Resources:
       KeyName: demo1-key
       Tags:
         - Key: EC2InstanceStack
-          value: MyEC2Instance
+          Value: MyEC2Instance
       
     
 
