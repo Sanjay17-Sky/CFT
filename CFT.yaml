@@ -15,7 +15,7 @@ Resources:
     Properties:
       VpcId: !Ref MyVPC
       CidrBlock: 10.0.1.0/24
-      AvailabilityZone: us east-1a
+      AvailabilityZone: us-east-1a
       MapPublicIpOnLaunch: true
       Tags:
         - Key: Version1Stack
@@ -25,7 +25,7 @@ Resources:
     Properties:
       VpcId: !Ref MyVPC
       CidrBlock: 10.0.2.0/24
-      AvailabilityZone: us east-1a
+      AvailabilityZone: us-east-1a
       MapPublicIpOnLaunch: false
       Tags:
         - Key: Version1Stack
