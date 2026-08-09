@@ -83,7 +83,7 @@ Resources:
       SubnetId: !Ref MyPublicSubnet
       SecurityGroupIds:
         - !Ref MySecurityGroup
-      KeyName: demo2-key
+      KeyName: demo3-key
       Tags:
         - Key: EC2InstanceStack
           Value: MyEC2Instance
