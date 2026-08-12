@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanjay's AWS Portfolio</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+background:#0f172a;
+color:white;
+transition:0.5s;
+}
+
+header{
+background:#1e293b;
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:15px;
+}
+
+.hero{
+text-align:center;
+padding:100px 20px;
+}
+
+.hero h1{
+font-size:50px;
+}
+
+button{
+padding:12px 25px;
+margin-top:20px;
+border:none;
+background:#0db8d6;
+color:white;
+font-size:18px;
+cursor:pointer;
+border-radius:8px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+padding:40px;
+}
+
+.card{
+background:#1e293b;
+padding:20px;
+border-radius:12px;
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.counter{
+font-size:45px;
+color:#b99d9f;
+}
+
+form{
+max-width:400px;
+margin:auto;
+padding:20px;
+}
+
+input,textarea{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:6px;
+border:none;
+}
+
+footer{
+text-align:center;
+padding:30px;
+background:#1e293b;
+margin-top:40px;
+}
+
+.light{
+background:white;
+color:black;
+}
+
+.light header,
+.light footer,
+.light .card{
+background:#e2e8f0;
+color:black;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>Sanjay S</h2>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Projects</a>
+<a href="#">Contact</a>
+</nav>
+
+<button onclick="theme()">🌙</button>
+
+</header>
+
+<section class="hero">
+<h1>Welcome to My AWS Portfolio</h1>
+<p>Cloud | AWS | DevOps | Web Development | CFT </p>
+
+<button onclick="showMessage()">Click Me</button>
+
+<p id="msg"></p>
+
+</section>
+
+<section class="cards">
+
+<div class="card">
+<h2>AWS</h2>
+<p>Amazon EC2, S3, IAM ,CFT </p>
+</div>
+
+<div class="card">
+<h2>DevOps</h2>
+<p>Docker, Jenkins, Git</p>
+</div>
+
+<div class="card">
+<h2>Projects</h2>
+<p>Deployed applications on AWS using CloudFormation Templates</p>
+</div>
+
+</section>
+
+<center>
+<h2>Visitors</h2>
+<div class="counter" id="count">0</div>
+</center>
+
+<form onsubmit="return submitForm()">
+
+<h2>Contact Me</h2>
+
+<input type="text" placeholder="Name" required>
+
+<input type="email" placeholder="Email" required>
+
+<textarea placeholder="Message"></textarea>
+
+<button type="submit">Send</button>
+
+</form>
+
+<footer>
+
+<p>© 2026 Sanjay S | AWS Portfolio</p>
+
+</footer>
+
+<script>
+
+function showMessage(){
+document.getElementById("msg").innerHTML="🎉 Welcome! Thanks for visiting.";
+}
+
+function theme(){
+document.body.classList.toggle("light");
+}
+
+let c=0;
+
+let counter=setInterval(function(){
+
+c++;
+
+document.getElementById("count").innerHTML=c;
+
+if(c==500){
+clearInterval(counter);
+}
+
+},10);
+
+function submitForm(){
+
+alert("Thank you! Your message has been received.");
+
+return false;
+
+}
+
+</script>
+
+</body>
+</html>
