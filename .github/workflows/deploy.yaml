@@ -1,0 +1,11 @@
+name: Deploy Website
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test Github Actions
+        run: echo "GitHub Actions is working!"
