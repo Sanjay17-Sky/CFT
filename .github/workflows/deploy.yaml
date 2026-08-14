@@ -16,7 +16,7 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd ~/CFT/CFT
+            cd ~/CFT
             git pull origin main
             sudo cp "sanjay web.html" /var/www/html/index.html
             
