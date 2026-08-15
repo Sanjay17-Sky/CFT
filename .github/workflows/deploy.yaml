@@ -19,4 +19,5 @@ jobs:
             cd ~/CFT
             git pull origin main
             sudo cp "sanjay web.html" /var/www/html/index.html
+            sudo systemctl restart apache2
             
