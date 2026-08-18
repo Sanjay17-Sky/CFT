@@ -18,6 +18,10 @@ jobs:
           script: |
             cd ~/CFT
             git pull origin main
+            sudo docker build -t sanjay-web .
+            sudo docker stop sanjay-web-container || true
+            sudo docker rm sanjay-web-container || true
+            sudo docker run -d --name sanjay-web-container -p 8080:80 sanjay-web
             sudo cp "sanjay web.html" /var/www/html/index.html
             sudo systemctl restart apache2
             
