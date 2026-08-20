@@ -196,7 +196,8 @@ This maps EC2 port "8080" to port "80" inside the Docker container.
 AWS CloudFormation Stack
 <img width="1366" height="551" alt="Screenshot (18)" src="https://github.com/user-attachments/assets/273a77f3-e5fd-4323-8eca-db398108a095" />
 
-GitHub Actions
+GitHub Actions  
+
   Image of Github Actions Workflow
   <img width="1067" height="225" alt="WhatsApp Image 2026-08-19 at 8 33 29 PM" src="https://github.com/user-attachments/assets/c77e5a12-49df-48a0-9375-401941e257d6" />
 
