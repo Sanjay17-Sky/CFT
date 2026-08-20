@@ -249,7 +249,7 @@ Through this project, I learned:
 
 This project is intended as a learning project.
 
-The current CloudFormation security group permits SSH (port "22") and HTTP (port "80") from "0.0.0.0/0". For a production environment, SSH access should be restricted to trusted sources rather than being open to the entire internet.
+During the project, the CloudFormation security group permitted SSH (port 22) and HTTP (port 80) from 0.0.0.0/0. Since this was a learning environment, the AWS resources were deleted after testing. In a production environment, SSH access should be restricted to trusted sources.
 
 
 🎯 Project Outcome
@@ -259,6 +259,11 @@ This project demonstrates a complete beginner-to-intermediate DevOps workflow:
 Infrastructure as Code → Cloud Infrastructure → Version Control → CI/CD → Containerization → Automated Deployment
 
 It combines AWS, Linux, Git, GitHub Actions, Docker, and CloudFormation into one practical project.
+
+
+🧹 Resource Cleanup
+
+After completing the deployment and testing, the AWS CloudFormation stack and associated practice resources were deleted to avoid unnecessary resource usage and charges. The GitHub repository and project documentation were retained for learning and portfolio purposes.
 
 👨‍💻 Author
 
